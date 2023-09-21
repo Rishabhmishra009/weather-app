@@ -4,15 +4,67 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:layout_margin="2dp"
+    android:background="@drawable/app"
+    tools:context=".MainActivity"
+    >
 
-    <TextView
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
+        android:orientation="vertical"
+        app:layout_constraintGuide_end="204dp" />
+
+    <Button
+        android:id="@+id/fetchWeatherButton"
+        android:layout_width="179dp"
+        android:layout_height="61dp"
+        android:layout_marginBottom="30dp"
+        android:text="@string/get_report"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.501"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:textSize="20sp"/>
+
+
+    <ScrollView
+        android:layout_width="388dp"
+        android:layout_height="50dp"
+        android:layout_marginBottom="268dp"
+        app:layout_constraintBottom_toTopOf="@+id/fetchWeatherButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <EditText
+            android:id="@+id/weatherTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:autofillHints="Weather report"
+            android:ems="10"
+            android:gravity="start|top"
+            android:inputType="textMultiLine"
+            app:layout_constraintBottom_toTopOf="@+id/fetchWeatherButton"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:layout_editor_absoluteX="10dp" />
+
+
+    </ScrollView>
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="326dp"
+        android:layout_height="42dp"
+        android:text="Bangalore's weather today"
+        android:textColor="@color/black"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        tools:layout_editor_absoluteX="41dp"
+        tools:layout_editor_absoluteY="16dp"
+        android:textAlignment="center"/>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+
+
