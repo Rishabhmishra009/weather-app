@@ -38,7 +38,7 @@ class MainActivity : AppCompatActivity() {
         fetchWeatherButton.setOnClickListener {
             // Make the API request
             val location = "Bangalore"
-            val apiKey = "YOUR_API_KEY" // Replace with your API key
+            val apiKey = "1bae9284527d4d7bbef133833232409" // Replace with your API key
 
             val call = weatherApiService.getWeather(location, apiKey)
 
