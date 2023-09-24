@@ -25,9 +25,9 @@ class MainActivity : AppCompatActivity() {
         weatherTextView = findViewById(R.id.weatherTextView)
         val fetchWeatherButton: Button = findViewById(R.id.fetchWeatherButton)
 
-        // Create a Retrofit instance with ScalarsConverterFactory
+
         val retrofit = Retrofit.Builder()
-            .baseUrl("https://api.example.com/") // Replace with your API base URL
+            .baseUrl("http://api.weatherapi.com/v1/current.json?key=1bae9284527d4d7bbef133833232409&q=bangalore&aqi=no/")
             .addConverterFactory(ScalarsConverterFactory.create())
             .build()
 

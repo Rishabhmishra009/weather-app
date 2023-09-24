@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">My Application</string>
+    <string name="app_name">The weather app</string>
     <string name="Rain_check">Click here to see if Bangalore is planning a surprise shower party!</string>
     <string name="get_report">Get Report</string>
 </resources>
