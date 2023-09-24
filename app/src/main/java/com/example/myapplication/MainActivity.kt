@@ -13,6 +13,13 @@ import retrofit2.converter.scalars.ScalarsConverterFactory
 import retrofit2.http.GET
 import retrofit2.http.Query
 
+interface WeatherApiService {
+    @GET("weather")
+    fun getWeather(
+        @Query("q") location: String,
+        @Query("appid") apiKey: String
+    ): Call<String>
+}
 class MainActivity : AppCompatActivity() {
 
     private lateinit var weatherTextView: TextView
@@ -75,10 +82,4 @@ class MainActivity : AppCompatActivity() {
 
 
 
-interface WeatherApiService {
-    @GET("weather")
-    fun getWeather(
-        @Query("q") location: String,
-        @Query("appid") apiKey: String
-    ): Call<String>
-}
+
