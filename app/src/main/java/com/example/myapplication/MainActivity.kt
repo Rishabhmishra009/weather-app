@@ -9,16 +9,17 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.converter.scalars.ScalarsConverterFactory
 import retrofit2.http.GET
 import retrofit2.http.Query
 
 interface WeatherApiService {
-    @GET("weather")
+    @GET("current.json")
     fun getWeather(
         @Query("q") location: String,
-        @Query("appid") apiKey: String
-    ): Call<String>
+        @Query("key") apiKey: String
+    ): Call<Any>
 }
 class MainActivity : AppCompatActivity() {
 
@@ -34,34 +35,32 @@ class MainActivity : AppCompatActivity() {
 
 
         val retrofit = Retrofit.Builder()
-            .baseUrl("http://api.weatherapi.com/v1/current.json?key=1bae9284527d4d7bbef133833232409&q=bangalore&aqi=no/")
-            .addConverterFactory(ScalarsConverterFactory.create())
+            .baseUrl("https://api.weatherapi.com/v1/")
+            .addConverterFactory(GsonConverterFactory.create())
             .build()
 
-        // Create the WeatherApiService interface
         val weatherApiService = retrofit.create(WeatherApiService::class.java)
 
         // Set up a click listener for the fetchWeatherButton
         fetchWeatherButton.setOnClickListener {
             // Make the API request
-            val location = "Bangalore" // Location
-            val apiKey = "1bae9284527d4d7bbef133833232409" //API key
+            val location = "bangalore" // Location
+            val apiKey = "6214394c4e1f402083e142314232409" //API key
 
             val call = weatherApiService.getWeather(location, apiKey)
 
-            call.enqueue(object : Callback<String> {
-                override fun onResponse(call: Call<String>, response: Response<String>) {
+            call.enqueue(object : Callback<Any> {
+                override fun onResponse(call: Call<Any>, response: Response<Any>) {
                     if (response.isSuccessful) {
                         val weatherResponse = response.body()
-                        // Call displayWeather() to update the UI with weather information
-                        displayWeather(weatherResponse)
+                        displayWeather(weatherResponse.toString())
                     } else {
                         // Handle the error
                         weatherTextView.text = "Error: ${response.code()}"
                     }
                 }
 
-                override fun onFailure(call: Call<String>, t: Throwable) {
+                override fun onFailure(call: Call<Any>, t: Throwable) {
                     // Handle network error
                     weatherTextView.text = "Network Error: ${t.message}"
                 }
