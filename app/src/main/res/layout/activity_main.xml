@@ -29,40 +29,38 @@
         android:textSize="20sp"/>
 
 
-    <ScrollView
-        android:layout_width="388dp"
-        android:layout_height="50dp"
-        android:layout_marginBottom="268dp"
+    <TextView
+        android:id="@+id/weatherTextView"
+        android:layout_width="354dp"
+        android:layout_height="392dp"
+        android:autofillHints="Weather report"
+        android:ems="10"
+        android:gravity="start|top"
+        android:inputType="textMultiLine"
+        android:textSize="45sp"
+        android:textStyle="normal"
+        app:layout_constrainedWidth="true"
         app:layout_constraintBottom_toTopOf="@+id/fetchWeatherButton"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
-
-        <EditText
-            android:id="@+id/weatherTextView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:autofillHints="Weather report"
-            android:ems="10"
-            android:gravity="start|top"
-            android:inputType="textMultiLine"
-            app:layout_constraintBottom_toTopOf="@+id/fetchWeatherButton"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:layout_editor_absoluteX="10dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 
-    </ScrollView>
+
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="326dp"
         android:layout_height="42dp"
         android:text="Bangalore's weather today"
+        android:textAlignment="center"
         android:textColor="@color/black"
         android:textSize="25sp"
         android:textStyle="bold"
-        tools:layout_editor_absoluteX="41dp"
-        tools:layout_editor_absoluteY="16dp"
-        android:textAlignment="center"/>
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
